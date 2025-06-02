@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 2</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Bootstrap JS (optional, for components like modals, dropdowns) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- js -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- swiperjs cdn -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+
+
+    <!-- jquery -->
+    <script>
+        // close button
+        $(document).ready(function () {
+            $(".button_close").click(function () {
+                $(".flexcontainer").slideUp(200);
+            });
+        });
+
+        $(document).ready(function () {
+
+        })
+    </script>
+
+    <!-- js -->
+    <script>
+        // cart button
+        function openMenu() {
+            document.getElementById('cartbox').style.display = 'flex';
+        }
+
+        function closeMenu() {
+            document.getElementById('cartbox').style.display = 'none';
+        }
+    </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const swiper = new Swiper('.mySwiper', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 1,
+        },
+        1024: {
+          slidesPerView: 1,
+        },
+      },
+    });
+  });
+</script>
+
+</head>
+
+<body>
+
+    <!-- BOX1 -->
+    <header>
+
+        <div class="flexcontainer">
+            <div class="heading">
+                <h2>Free international shipping</h2>
+            </div>
+            <div class="button">
+                <button type="button" class="button_close" aria-label="close notification"><i
+                        class="bi bi-x"></i></button>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- BOX2 -->
+    <nav>
+        <div class="nav-grid-container">
+            <div class="box box1">
+                <div class="dropdown">
+                    <button type="button" class="btn" id="currencyButton" data-bs-toggle="dropdown">
+                        <span> <img src="./us img.gif" alt="us-icon" class="us-icon" id="currencyIcon"></span>
+                        <span class="usd" id="currencyText">USD</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" data-currency="USD" data-icon="./us img.gif">USD</a></li>
+                        <li><a class="dropdown-item" href="#" data-currency="AUD" data-icon="./aud img.gif">AUD</a></li>
+                    </ul>
+                </div>
+
+                <script>
+                    $(document).ready(function () {
+                        $(".dropdown-item").on("click", function (e) {
+                            e.preventDefault();
+
+                            // Get the selected currency and icon
+                            var selectedCurrency = $(this).data("currency");
+                            var selectedIcon = $(this).data("icon");
+
+                            // Update the button text and icon
+                            $("#currencyText").text(selectedCurrency);
+                            $("#currencyIcon").attr("src", selectedIcon);
+                        });
+                    });
+
+                </script>
+            </div>
+
+            <div class="box box2">
+                <span><a href="#" class="account">ACCOUNT</a></span>
+            </div>
+
+            <div class="box box3">
+                <div class="loginbutton">
+                    <button type="button" class="btn" data-bs-toggle="dropdown">
+                        <span class="login">LOGIN</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <ul>
+                        <!--  list-->
+                    </ul>
+                </div>
+                <div class="register">
+                    <a href="#">REGISTER</a>
+                </div>
+            </div>
+
+            <div class="box box4">
+                <a href="#"><i class="bi bi-search text-dark"></i></a>
+            </div>
+
+            <div class="box box5"><a href="#">GIFT CERTIFICATES</a></div>
+
+            <div class="box box6"><a href="#">WISH LIST</a></div>
+
+            <div class="box box7">
+
+                <button type="button" class="cartbutton position-relative" onclick="openMenu()">
+                    <a href="#" class="cart">CART</a>
+                    <i class="bi bi-bag"></i>
+                    <span class="position-absolute top-o start-100 translate-middle badge rounded-oval bg-danger">0
+                        <span class="visually-hidden">Items in cart</span>
+                    </span>
+                </button>
+                <div class="cartbox" id="cartbox" style="display: none;">
+
+                    <button class="close-btn" onclick="closeMenu()"><i class="fas fa-times"></i></button>
+                    <h2>Menu</h2>
+                    <ul>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Portfolio</li>
+                        <li>Services</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </nav>
+
+    <!-- BOX3 -->
+    <section>
+        <div class="shopnow">
+            <p>mid-season sale upto 70% off. use code:"sale70".</p>
+            <p> <a href="#" class="code">shop now</a></p>
+        </div>
+    </section>
+
+    <!-- BOX4 -->
+    <section>
+        <div class="flex-container">
+            <div class="logo_container">
+                <img src="./logo.png" alt="#">
+            </div>
+            <div class="links_container">
+                <div class="flex_box">
+                    <div class="b1"> <a href="#">Home</a></div>
+                    <div class="b2"> <a href="#">collections</a></div>
+                    <div class="b3"><a href="#">shop</a></div>
+                    <div class="b4"><a href="#">acccessories</a></div>
+                    <div class="b5">
+                        <a href="#">#trend now</a>
+                        <button type="button" class="badge rounded-pill" id="sale_button">Sale</span></button>
+                    </div>
+                    <div class="b6">
+                        <a href="#">look book</a>
+                        <button type="button" class="badge rounded-pill bg-warning" id="hot_button">Hot</button>
+                    </div>
+                    <div class="b7"><a href="#">blog</a></div>
+                    <div class="b8"><a href="#">theme faqs</a></div>
+                    <div class="b9"><a href="$">brands</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOX5 -->
+<section class="swiper-section">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="./img1.png" alt="slide1"></div>
+      <div class="swiper-slide"><img src="./img2.png" alt="slide2"></div>
+      <div class="swiper-slide"><img src="./img3.png" alt="slide3"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>
+
+
+
+
+</body>
+
+</html>
