@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 2</title>
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="./bootsrap.css">
+     <script src="./bootstrap.js"></script> -->
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- Bootstrap JS (optional, for components like modals, dropdowns) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-
     <!-- js -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 
@@ -21,8 +22,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- swiperjs cdn -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 
 
@@ -53,33 +54,62 @@
         }
     </script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const swiper = new Swiper('.mySwiper', {
-      slidesPerView: 1,
-      spaceBetween: 10,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 1,
-        },
-        768: {
-          slidesPerView: 1,
-        },
-        1024: {
-          slidesPerView: 1,
-        },
-      },
-    });
-  });
-</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const swiper = new Swiper('.mySwiper', {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        });
+    </script>
+
+
+    <!-- animation script -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const slideContents = document.querySelectorAll('.slide-content');
+            const nextBtn = document.querySelector('.swiper-button-next');
+            const prevBtn = document.querySelector('.swiper-button-prev');
+
+
+            function animateContent() {
+                slideContents.forEach(content => content.classList.remove('popup'));
+                const activeSlide = document.querySelector('.swiper-slide-active');
+                if (!activeSlide) return;
+                const activeContent = activeSlide.querySelector('.slide-content');
+                if (activeContent) {
+                    void activeContent.offsetWidth;
+                    activeContent.classList.add('popup');
+                }
+            }
+
+            // Animate on next button click
+            nextBtn.addEventListener('click', () => {
+                setTimeout(animateContent, 300);
+            });
+
+            // Animate on prev button click
+            prevBtn.addEventListener('click', () => {
+                setTimeout(animateContent, 300);
+            });
+
+            // animate on initial load
+
+            animateContent();
+
+        });
+    </script>
+
 
 </head>
 
@@ -221,27 +251,56 @@
                     </div>
                     <div class="b7"><a href="#">blog</a></div>
                     <div class="b8"><a href="#">theme faqs</a></div>
-                    <div class="b9"><a href="$">brands</a></div>
+                    <div class="b9"><a href="#">brands</a></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- BOX5 -->
-<section class="swiper-section">
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="./img1.png" alt="slide1"></div>
-      <div class="swiper-slide"><img src="./img2.png" alt="slide2"></div>
-      <div class="swiper-slide"><img src="./img3.png" alt="slide3"></div>
-    </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
-</section>
+    <section class="swiper-section">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- slide 1 -->
+                <div class="swiper-slide">
+                    <img src="./img1.png" alt="slide1">
+                    <div class="slide-content" id="content">
+                        <h2>CosmoPolitian</h2>
+                        <p>DESTIBULUM LAOREET AN RISUS PORTA QUISQUE COSMOPOLIS</p>
+                        <button>SHOP NOW</button>
+                    </div>
+                </div>
+                <!-- slide 2 -->
+                <div class="swiper-slide">
+                    <img src="./img2.png" alt="slide2">
+                    <div class="slide-content" id="content">
+                        <h2>Lorem A Cosmo</h2>
+                        <p>DESTIBULUM LAOREET AN RISUS PORTA QUISQUE COSMOPOLIS</p>
+                        <button>SHOP NOW</button>
+                    </div>
+                </div>
+                <!-- slide 3 -->
+                <div class="swiper-slide">
+                    <img src="./img3.png" alt="slide3">
+                    <div class="slide-content" id="content">
+                        <h2>Sale Up To 30% Off</h2>
+                        <p>DESTIBULUM LAOREET AN RISUS PORTA QUISQUE COSMOPOLIS</p>
+                        <button>SHOP NOW</button>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </section>
 
-
+<!-- BOX6 -->
+ <div class="shop-container">
+    <div class="shopbox1"></div>
+    <div class="shopbox2"><h1>THE SHOP</h1></div>
+    <div class="shopbox3"></div>
+ </div>
 
 
 </body>
