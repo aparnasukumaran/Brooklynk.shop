@@ -640,12 +640,7 @@
     color: white;
   }
 
-  .card1:hover .overlay-text,
-  .card2:hover .overlay-text,
-  .card3:hover .overlay-text,
-  .card4:hover .overlay-text,
-  .card5:hover .overlay-text,
-  .card6:hover .overlay-text {
+  .card:hover .overlay-text {
     opacity: 1;
   }
 
