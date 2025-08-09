@@ -6,162 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 2</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <link rel="stylesheet" href="./bootsrap.css">
-     <script src="./bootstrap.js"></script> -->
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./bootsrap.css">
+    <script src="./script.js" defer></script>
+    <script src="./bootstrap.js"></script>
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-    <!-- Bootstrap JS (optional, for components like modals, dropdowns) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- js -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <!-- swiperjs cdn -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-
-
-
-    <!-- jquery -->
-    <script>
-        // close button
-        $(document).ready(function () {
-            $(".button_close").click(function () {
-                $(".flexcontainer").slideUp(200);
-            });
-        });
-
-        $(document).ready(function () {
-
-        })
-    </script>
-
-    <!-- js -->
-    <script>
-        // cart button
-        function openMenu() {
-            document.getElementById('cartbox').style.display = 'flex';
-        }
-
-        function closeMenu() {
-            document.getElementById('cartbox').style.display = 'none';
-        }
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const swiper = new Swiper('.mySwiper', {
-                slidesPerView: 1,
-                spaceBetween: 10,
-                loop: true,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-            });
-        });
-    </script>
-
-
-    <!-- animation script -->
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const slideContents = document.querySelectorAll('.slide-content');
-            const nextBtn = document.querySelector('.swiper-button-next');
-            const prevBtn = document.querySelector('.swiper-button-prev');
-
-
-            function animateContent() {
-                slideContents.forEach(content => content.classList.remove('popup'));
-                const activeSlide = document.querySelector('.swiper-slide-active');
-                if (!activeSlide) return;
-                const activeContent = activeSlide.querySelector('.slide-content');
-                if (activeContent) {
-                    void activeContent.offsetWidth;
-                    activeContent.classList.add('popup');
-                }
-            }
-
-            // Animate on next button click
-            nextBtn.addEventListener('click', () => {
-                setTimeout(animateContent, 300);
-            });
-
-            // Animate on prev button click
-            prevBtn.addEventListener('click', () => {
-                setTimeout(animateContent, 300);
-            });
-
-            // animate on initial load
-
-            animateContent();
-
-        });
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 
 </head>
 
 <body>
 
+
     <!-- BOX1 -->
     <header>
-
         <div class="flexcontainer">
             <div class="heading">
                 <h2>Free international shipping</h2>
             </div>
-            <div class="button">
-                <button type="button" class="button_close" aria-label="close notification"><i
-                        class="bi bi-x"></i></button>
-            </div>
-        </div>
 
+            <div class="button">
+                <button type="button" class="button_close" aria-label="close notification">
+                    <i class="bi bi-x"></i></button>
+            </div>
+
+        </div>
     </header>
 
     <!-- BOX2 -->
     <nav>
-        <div class="nav-grid-container">
+        <div class="nav-grid-container ">
             <div class="box box1">
                 <div class="dropdown">
                     <button type="button" class="btn" id="currencyButton" data-bs-toggle="dropdown">
-                        <span> <img src="./us img.gif" alt="us-icon" class="us-icon" id="currencyIcon"></span>
+                        <span> <img src="./flag/us img.gif" alt="us-icon" class="us-icon" id="currencyIcon"></span>
                         <span class="usd" id="currencyText">USD</span>
                         <i class="bi bi-chevron-down"></i>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#" data-currency="USD" data-icon="./us img.gif">USD</a></li>
-                        <li><a class="dropdown-item" href="#" data-currency="AUD" data-icon="./aud img.gif">AUD</a></li>
+                        <li><a class="dropdown-item" href="#" data-currency="USD" data-icon="./flag/us img.gif">USD</a>
+                        </li>
+                        <li><a class="dropdown-item" href="#" data-currency="AUD" data-icon="./flag/aud img.gif">AUD</a>
+                        </li>
                     </ul>
                 </div>
-
-                <script>
-                    $(document).ready(function () {
-                        $(".dropdown-item").on("click", function (e) {
-                            e.preventDefault();
-
-                            // Get the selected currency and icon
-                            var selectedCurrency = $(this).data("currency");
-                            var selectedIcon = $(this).data("icon");
-
-                            // Update the button text and icon
-                            $("#currencyText").text(selectedCurrency);
-                            $("#currencyIcon").attr("src", selectedIcon);
-                        });
-                    });
-
-                </script>
             </div>
 
             <div class="box box2">
@@ -193,69 +87,53 @@
 
             <div class="box box7">
 
-                <button type="button" class="cartbutton position-relative" onclick="openMenu()">
+                <button type="button" class="cartbutton position-relative">
                     <a href="#" class="cart">CART</a>
                     <i class="bi bi-bag"></i>
                     <span class="position-absolute top-o start-100 translate-middle badge rounded-oval bg-danger">0
                         <span class="visually-hidden">Items in cart</span>
                     </span>
                 </button>
-                <div class="cartbox" id="cartbox" style="display: none;">
-
-                    <button class="close-btn" onclick="closeMenu()"><i class="fas fa-times"></i></button>
-                    <h2>Menu</h2>
-                    <ul>
-                        <li>Home</li>
-                        <li>About</li>
-                        <li>Portfolio</li>
-                        <li>Services</li>
-                        <li>Contact</li>
-                    </ul>
-                </div>
             </div>
-
-
-
         </div>
-
-
     </nav>
 
     <!-- BOX3 -->
     <section>
         <div class="shopnow">
             <p>mid-season sale upto 70% off. use code:"sale70".</p>
+
             <p> <a href="#" class="code">shop now</a></p>
         </div>
+
     </section>
 
     <!-- BOX4 -->
-    <section>
-        <div class="flex-container">
-            <div class="logo_container">
-                <img src="./logo.png" alt="#">
-            </div>
-            <div class="links_container">
-                <div class="flex_box">
-                    <div class="b1"> <a href="#">Home</a></div>
-                    <div class="b2"> <a href="#">collections</a></div>
-                    <div class="b3"><a href="#">shop</a></div>
-                    <div class="b4"><a href="#">acccessories</a></div>
-                    <div class="b5">
-                        <a href="#">#trend now</a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid P-5 ">
+            <a class="navbar-brand" href="#"><img src="./logo.png" alt="logo" width="150px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav px-4">
+                    <a class="nav-link active " aria-current="page" href="#" id="nav-a">Home</a>
+                    <a class="nav-link active" href="#shop" id="nav-a">Collections</a>
+                    <a class="nav-link active" href="#gallery" id="nav-a">Gallery</a>
+                    <a class="nav-link active" href="#about-us" id="nav-a">About Us</a>
+                    <a class="nav-link active" href="#contact-us" id="nav-a">Contact Us</a>
+                    <a class="nav-link active" href="#" id="nav-a">#trend now
                         <button type="button" class="badge rounded-pill" id="sale_button">Sale</span></button>
-                    </div>
-                    <div class="b6">
-                        <a href="#">look book</a>
+                    </a>
+                    <a class="nav-link active" href="#" id="nav-a">look book
                         <button type="button" class="badge rounded-pill bg-warning" id="hot_button">Hot</button>
-                    </div>
-                    <div class="b7"><a href="#">blog</a></div>
-                    <div class="b8"><a href="#">theme faqs</a></div>
-                    <div class="b9"><a href="#">brands</a></div>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </nav>
+
 
     <!-- BOX5 -->
     <section class="swiper-section">
@@ -263,7 +141,7 @@
             <div class="swiper-wrapper">
                 <!-- slide 1 -->
                 <div class="swiper-slide">
-                    <img src="./img1.png" alt="slide1">
+                    <img src="./banner images/img1.png" alt="slide 1">
                     <div class="slide-content" id="content">
                         <h2>CosmoPolitian</h2>
                         <p>DESTIBULUM LAOREET AN RISUS PORTA QUISQUE COSMOPOLIS</p>
@@ -272,7 +150,7 @@
                 </div>
                 <!-- slide 2 -->
                 <div class="swiper-slide">
-                    <img src="./img2.png" alt="slide2">
+                    <img src="./banner images/img2.png" alt="slide 2">
                     <div class="slide-content" id="content">
                         <h2>Lorem A Cosmo</h2>
                         <p>DESTIBULUM LAOREET AN RISUS PORTA QUISQUE COSMOPOLIS</p>
@@ -281,7 +159,7 @@
                 </div>
                 <!-- slide 3 -->
                 <div class="swiper-slide">
-                    <img src="./img3.png" alt="slide3">
+                    <img src="./banner images/img3.png" alt="slide 3">
                     <div class="slide-content" id="content">
                         <h2>Sale Up To 30% Off</h2>
                         <p>DESTIBULUM LAOREET AN RISUS PORTA QUISQUE COSMOPOLIS</p>
@@ -295,12 +173,362 @@
         </div>
     </section>
 
-<!-- BOX6 -->
- <div class="shop-container">
-    <div class="shopbox1"></div>
-    <div class="shopbox2"><h1>THE SHOP</h1></div>
-    <div class="shopbox3"></div>
- </div>
+    <!-- BOX6 -->
+    <div class="shop-container" id="shop">
+        <div class="shopbox1"></div>
+        <div class="shopbox2">
+            <h3>THE SHOP</h3>
+        </div>
+        <div class="shopbox3"></div>
+    </div>
+
+    <!-- BOX7 -->
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- product1 -->
+            <div class="col-lg-4 col-md-6 col-12 p-4 product-box ">
+                <div class="card" style="width: 100%;">
+                    <div class="image-container" style="position: relative;">
+                        <img src="./product img/product1.jpg" class="card-img-top" alt="...">
+                        <div class="overlay-text">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat optio </p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title">DRESSES</p>
+                        <h3 class="card-text">Maecedas+Arcos</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur </p>
+                        <span><i class="bi bi-currency-rupee"></i>399</span>
+
+                        <span> <del><i class="bi bi-currency-rupee"></i>599</del></span>
+
+                        <span class="offer"><i class="bi bi-currency-rupee"></i>33% off</span><br>
+                        <a href="#" class="btn btn-primary">SHOP NOW</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- product2 -->
+            <div class="col-lg-4 col-md-6 col-12 p-4 product-box">
+                <div class="card" style="width:100%;">
+                    <div class="image-container" style="position: relative;">
+                        <img src="./product img/product2.jpg" class="card-img-top" alt="...">
+                        <div class="overlay-text">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat optio </p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title">SHOES</p>
+                        <h3 class="card-text">Milancelos Dannis</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur </p>
+                        <span><i class="bi bi-currency-rupee"></i>399</span>
+
+                        <span> <del><i class="bi bi-currency-rupee"></i>599</del></span>
+
+                        <span class="offer"><i class="bi bi-currency-rupee"></i>33% off</span><br>
+                        <a href="#" class="btn btn-primary">SHOP NOW</a>
+                    </div>
+                </div>
+            </div>
+            <!-- product3 -->
+            <div class="col-lg-4 col-md-6 col-12 p-4 product-box">
+                <div class="card" style="width:100%;">
+                    <div class="image-container" style="position: relative;">
+                        <img src="./product img/product3.jpg" class="card-img-top" alt="...">
+                        <div class="overlay-text">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat optio </p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title">ACCESSORIES</p>
+                        <h3 class="card-text">Macedas#Cosmo</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur </p>
+                        <span><i class="bi bi-currency-rupee"></i>399</span>
+
+                        <span> <del><i class="bi bi-currency-rupee"></i>599</del></span>
+
+                        <span class="offer"><i class="bi bi-currency-rupee"></i>33% off</span><br>
+                        <a href="#" class="btn btn-primary">SHOP NOW</a>
+                    </div>
+                </div>
+            </div>
+            <!-- product4 -->
+            <div class="col-lg-4 col-md-6 col-12 p-4 product-box">
+                <div class="card" style="width: 100%;">
+                    <div class="image-container" style="position: relative;">
+                        <img src="./product img/product4.jpg" class="card-img-top" alt="...">
+                        <div class="overlay-text">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat optio </p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title">MIXED UP</p>
+                        <h3 class="card-text">Lorem De Dorumor</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur </p>
+                        <span><i class="bi bi-currency-rupee"></i>399</span>
+
+                        <span> <del><i class="bi bi-currency-rupee"></i>599</del></span>
+
+                        <span class="offer"><i class="bi bi-currency-rupee"></i>33% off</span><br>
+                        <a href="#" class="btn btn-primary">SHOP NOW</a>
+                    </div>
+                </div>
+            </div>
+            <!-- product5 -->
+            <div class="col-lg-4 col-md-6 col-12 p-4 product-box">
+                <div class="card" style="width: 100%;">
+                    <div class="image-container" style="position: relative;">
+                        <img src="./product img/product5.jpg" class="card-img-top" alt="...">
+                        <div class="overlay-text">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat optio </p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title">TRENDING NOW</p>
+                        <h3 class="card-text">Milancelos Anol Lanos</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur </p>
+                        <span><i class="bi bi-currency-rupee"></i>399</span>
+
+                        <span> <del><i class="bi bi-currency-rupee"></i>599</del></span>
+
+                        <span class="offer"><i class="bi bi-currency-rupee"></i>33% off</span><br>
+                        <a href="#" class="btn btn-primary">SHOP NOW</a>
+                    </div>
+                </div>
+            </div>
+            <!-- product6 -->
+            <div class="col-lg-4 col-md-6 col-12 p-4 product-box">
+                <div class="card" style="width: 100%;">
+                    <div class="image-container" style="position: relative;">
+                        <img src="./product img/product6.jpg" class="card-img-top" alt="...">
+                        <div class="overlay-text">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat optio </p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title">SWIMWEAR</p>
+                        <h3 class="card-text">Milancelos#Lanos</h3>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur </p>
+                        <span><i class="bi bi-currency-rupee"></i>399</span>
+
+                        <span> <del><i class="bi bi-currency-rupee"></i>599</del></span>
+
+                        <span class="offer"><i class="bi bi-currency-rupee"></i>33% off</span><br>
+                        <a href="#" class="btn btn-primary">SHOP NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- BOX8 -->
+
+    <div class="about-container" id="about-us">
+        <div class="aboutbox1"></div>
+        <div class="aboutbox2">
+            <h3>ABOUT US</h3>
+        </div>
+        <div class="aboutbox3"></div>
+    </div>
+
+
+    <!-- BOX9 -->
+    <div class="container-fluid ">
+        <div class="row p-4 ">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="aboutus">
+                    <p class="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum earum doloribus nisi
+                        omnis
+                        quibusdam ut
+                        commodi repellat distinctio pariatur temporibus veniam excepturi neque hic perspiciatis laborum,
+                        aspernatur atque modi eum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum earum
+                        doloribus nisi omnis quibusdam ut commodi repellat distinctio pariatur temporibus veniam
+                        excepturi neque
+                        hic perspiciatis laborum, aspernatur atque modi eum.doloribus nisi omnis quibusdam ut commodi
+                        repellat distinctio pariatur temporibus veniam excepturi nequeLorem ipsum dolor sit amet,
+                        consectetur adipisicing elit. Harum earum doloribus nisi omnis
+                        quibusdam ut
+                    </p>
+                    <p class="p2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum earum doloribus nisi
+                        omnis
+                        quibusdam ut
+                        commodi repellat distinctio pariatur temporibus veniam excepturi neque hic perspiciatis laborum,
+                        aspernatur atque modi eum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum earum
+                        doloribus nisi omnis quibusdam ut commodi repellat distinctio pariatur temporibus veniam
+                        excepturi neque
+                        hic perspiciatis laborum, aspernatur atque modi eum.doloribus nisi omnis quibusdam ut commodi
+                        repellat distinctio pariatur temporibus veniam excepturi nequeLorem ipsum dolor sit amet,
+                        consectetur adipisicing elit. Harum earum doloribus nisi omnis
+                        quibusdam ut
+
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="aboutus-img">
+                    <img src="./product img/product1.jpg" alt="aboutus-img" width="100%" height="100%">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- gallery -->
+    <div class="gallerycontainer" id="gallery">
+        <div class="gallerybox1"></div>
+        <div class="gallerybox2">
+            <h3>GALLERY</h3>
+        </div>
+        <div class="gallerybox3"></div>
+    </div>
+
+
+    <!-- BOX10 -->
+    <div class="gallery-container">
+        <div class="row p-2 mx-1">
+            <div class="col-lg-3 col-md-4 col-12  mt-2 gallery-img">
+                <img src="./product img/product1.jpg" alt="" width="100%">
+            </div>
+            <div class="col-lg-3 col-md-4 col-12  mt-2 gallery-img">
+                <img src="./product img/product2.jpg" alt="" width="100%">
+            </div>
+            <div class="col-lg-3 col-md-4 col-12  mt-2 gallery-img">
+                <img src="./product img/product3.jpg" alt="" width="100%">
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-2 gallery-img ">
+                <img src="./product img/product4.jpg" alt="" width="100%">
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-2 gallery-img ">
+                <img src="./product img/product4.jpg" alt="" width="100%">
+            </div>
+            <div class="col-lg-3 col-md-4 col-12  mt-2 gallery-img">
+                <img src="./product img/product3.jpg" alt="" width="100%">
+            </div>
+            <div class="col-lg-3 col-md-4 col-12  mt-2 gallery-img">
+                <img src="./product img/product2.jpg" alt="" width="100%">
+            </div>
+            <div class="col-lg-3 col-md-4 col-12  mt-2 gallery-img">
+                <img src="./product img/product1.jpg" alt="" width="100%">
+            </div>
+        </div>
+    </div>
+
+    <!-- BOX11 -->
+    <div class="contactus-container" id="contact-us">
+        <div class="contactusbox1"></div>
+        <div class="contactusbox2">
+            <h3>CONTACT US</h3>
+        </div>
+        <div class="contactusbox3"></div>
+    </div>
+
+
+    <!-- BOX12 -->
+    <div class="contact-container ">
+        <div class="row  mt-3 contact-box">
+            <div class="col-12 col-md-6 col-lg-6 ">
+                <div class="map mx-5 mt-2">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31333.24031059935!2d76.44033878711633!3d10.989389257029586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba87f7f670aa6ad%3A0x3bb7456986f8bc3b!2sMannarkkad%2C%20Kerala!5e0!3m2!1sen!2sin!4v1749548509453!5m2!1sen!2sin"
+                        width="450px" height="450px" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-6">
+                <div class="formbox mx-5 ">
+                    <h4>Enquiry Now</h4>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number:</label>
+                            <input type="text" id="phone" name="phone" placeholder="Your Number" required>
+                        </div>
+
+                        <button type="submit" id="submit_button">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIDEO SECTION -->
+    <div class="container-fluid">
+        <div class="row mx-5">
+            <div class="col-12 video-box">
+                <video autoplay muted loop playsinline controls width="300" class="video">
+                    <source src="./videoplayback.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- BOX13 -->
+    <footer>
+        <div class="footer-container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="quick-links">
+                        <a href="#about-us">About</a><br><br>
+                        <a href="#contact-us">Contact</a><br><br>
+                        <a href="#shop">Collections</a><br><br>
+                        <a href="#gallery">gallery</a><br><br>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="logoimg">
+                        <img src="./logo.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="social-icons">
+                        <i class="bi bi-facebook"></i><br><br>
+                        <i class="bi bi-whatsapp"></i><br><br>
+                        <i class="bi bi-instagram"></i><br><br>
+                        <i class="bi bi-twitter-x"></i><br><br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <i class="bi bi-c-circle"></i>2025 Brooklynk.All Rights reserved
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <!-- jquery -->
+    <script>
+        // close button
+        $(document).ready(function () {
+            $(".button_close").click(function () {
+                $(".flexcontainer").slideUp(200);
+            });
+        });
+
+        $(document).ready(function () {
+
+        })
+    </script>
+
 
 
 </body>
